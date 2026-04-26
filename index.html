@@ -67,32 +67,16 @@
 
 </body>
 </html>
-<head>
-    <meta charset="UTF-8">
-    <title>QR Redirect</title>
-
-    <!-- GOOGLE ANALYTICS -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6L9YY403C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Q6L9YY403C');
-    </script>
-
-    <!-- CSS / JS của bạn bên dưới -->
-</head>
 <script>
-fetch("https://ipapi.co/json/")
+fetch("https://ipinfo.io/json")
   .then(res => res.json())
   .then(data => {
     fetch("https://script.google.com/macros/s/AKfycbytBtyJ4b17wqJOALDTb5ASFLe40cGeXyWtUUn5vxsLgpRe17SvztUdS8TQvsJmlmfc/exec"
-      + "?qr=O8305_SO1807-US"
+      + "?qr=qr1"
       + "&city=" + data.city
       + "&region=" + data.region
-      + "&country=" + data.country_name
-      + "&ua=" + encodeURIComponent(navigator.userAgent)
+      + "&country=" + data.country
+      + "&org=" + data.org
     );
   });
 </script>
