@@ -84,8 +84,15 @@
     <!-- CSS / JS của bạn bên dưới -->
 </head>
 <script>
-fetch("https://script.google.com/macros/s/AKfycbzqJB2QRGW8lUuUq4ftzUu-3kAAQ45gj185e8GuNJ-A4vYeLb54yIEyH9SHVATA1Qj9jQ/exec"
-+ "?qr=O8305_SO1807-US"
-+ "&ua=" + encodeURIComponent(navigator.userAgent)
-+ "&loc=Vietnam");
+fetch("https://ipapi.co/json/")
+  .then(res => res.json())
+  .then(data => {
+    fetch("https://script.google.com/macros/s/AKfycbytBtyJ4b17wqJOALDTb5ASFLe40cGeXyWtUUn5vxsLgpRe17SvztUdS8TQvsJmlmfc/exec"
+      + "?qr=qr1"
+      + "&city=" + data.city
+      + "&region=" + data.region
+      + "&country=" + data.country_name
+      + "&ua=" + encodeURIComponent(navigator.userAgent)
+    );
+  });
 </script>
