@@ -69,28 +69,28 @@
 </html>
 <script>
 function getDevice() {
-  const ua = navigator.userAgent;
+    const ua = navigator.userAgent;
 
-  if (/iPhone/.test(ua)) return "iPhone";
-  if (/iPad/.test(ua)) return "iPad";
-  if (/Android/.test(ua)) return "Android";
-  if (/Windows/.test(ua)) return "Windows";
-  if (/Mac/.test(ua)) return "Mac";
+    if (/iPhone/.test(ua)) return "iPhone";
+    if (/iPad/.test(ua)) return "iPad";
+    if (/Android/.test(ua)) return "Android";
+    if (/Windows/.test(ua)) return "Windows";
+    if (/Mac/.test(ua)) return "Mac";
 
-  return "Khác";
+    return "Khác";
 }
 
 fetch("https://ipinfo.io/json")
-  .then(res => res.json())
-  .then(data => {
+.then(res => res.json())
+.then(data => {
 
-  const device = navigator.userAgent;
+    const device = getDevice();
 
-    fetch("https://script.google.com/macros/s/AKfycbzv3y4AGdazWHYTBsdka9ZvGGFL2QuYpxudTdkTuQy_lAsBaeVRm3VWdeU9J2xdahorCA/exec"
-      + "?qr=O8305_SO1807-US"
-      + "&device=" + encodeURIComponent(device)
-      + "&city=" + data.city
-      + "&region=" + data.region
+    fetch("https://script.google.com/macros/s/AKfycbx4JAcyOinhzAv1npOm-wGUw4WN75S1ezmRCd4SvTWHhwIvHVrNs-BD9W8hSVW5_Ve_/exec"
+        + "?qr=O8305_SO1807-US"
+        + "&device=" + encodeURIComponent(device)
+        + "&city=" + data.city
+        + "&region=" + data.region
     );
   });
 </script>
