@@ -84,11 +84,11 @@ fetch("https://ipinfo.io/json")
   .then(res => res.json())
   .then(data => {
 
-    const device = getDevice();
+  const device = navigator.userAgent;
 
     fetch("https://script.google.com/macros/s/AKfycbzv3y4AGdazWHYTBsdka9ZvGGFL2QuYpxudTdkTuQy_lAsBaeVRm3VWdeU9J2xdahorCA/exec"
       + "?qr=O8305_SO1807-US"
-      + "&device=" + device
+      + "&device=" + encodeURIComponent(device)
       + "&city=" + data.city
       + "&region=" + data.region
     );
