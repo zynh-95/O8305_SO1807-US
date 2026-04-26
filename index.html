@@ -68,15 +68,29 @@
 </body>
 </html>
 <script>
+function getDevice() {
+  const ua = navigator.userAgent;
+
+  if (/iPhone/.test(ua)) return "iPhone";
+  if (/iPad/.test(ua)) return "iPad";
+  if (/Android/.test(ua)) return "Android";
+  if (/Windows/.test(ua)) return "Windows";
+  if (/Mac/.test(ua)) return "Mac";
+
+  return "Khác";
+}
+
 fetch("https://ipinfo.io/json")
   .then(res => res.json())
   .then(data => {
+
+    const device = getDevice();
+
     fetch("https://script.google.com/macros/s/AKfycbytBtyJ4b17wqJOALDTb5ASFLe40cGeXyWtUUn5vxsLgpRe17SvztUdS8TQvsJmlmfc/exec"
       + "?qr=O8305_SO1807-US"
+      + "&device=" + device
       + "&city=" + data.city
       + "&region=" + data.region
-      + "&country=" + data.country
-      + "&org=" + data.org
     );
   });
 </script>
